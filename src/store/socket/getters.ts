@@ -4,7 +4,15 @@ import { RootState } from '@/store/types'
 
 export const getters: GetterTree<SocketState, RootState> = {
     getUrl: (state) => {
-        return '//' + state.hostname + (state.port !== 80 ? ':' + state.port : '')
+        const basePath = import.meta.env.BASE_URL || ''; // https://vitejs.dev/guide/build.html#public-base-path
+        const port = state.port === 80 ? '' : `:${state.port}`
+
+        const url = `//${state.hostname}${port}${basePath}`;
+        // strip trailing slash from BASE_URL in this getter, since most socket/getUrl consumers seem to assume no trailing slash is present
+        if (url[url.length - 1] === "/") {
+            return url.slice(0, -1)
+        }
+        return url
     },
 
     getHostUrl: (state) => {
@@ -12,6 +20,6 @@ export const getters: GetterTree<SocketState, RootState> = {
     },
 
     getWebsocketUrl: (state, getters) => {
-        return state.protocol + ':' + getters['getUrl'] + '/websocket'
+        return `${state.protocol}:${getters['getUrl']}/websocket`
     },
 }
