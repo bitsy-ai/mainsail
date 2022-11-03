@@ -382,7 +382,8 @@ export default class TheSelectPrinterDialog extends Mixins(BaseMixin) {
             hostname: printer.socket.hostname,
             port: printer.socket.port,
         })
-        this.$socket.setUrl(this.protocol + '://' + printer.socket.hostname + ':' + printer.socket.port + '/websocket')
+        const basePath = import.meta.env.BASE_URL || '/'; // https://vitejs.dev/guide/build.html#public-base-path
+        this.$socket.setUrl(`${this.protocol}://${printer.socket.hostname}:${printer.socket.port}${basePath}websocket`)
         this.$socket.connect()
     }
 

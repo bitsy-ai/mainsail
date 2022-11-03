@@ -12,6 +12,7 @@ export const getters: GetterTree<SocketState, RootState> = {
     },
 
     getWebsocketUrl: (state, getters) => {
-        return state.protocol + ':' + getters['getUrl'] + '/websocket'
+        const basePath = import.meta.env.BASE_URL || '/'; // https://vitejs.dev/guide/build.html#public-base-path
+        return `${state.protocol}:${getters['getUrl']}${basePath}websocket`
     },
 }

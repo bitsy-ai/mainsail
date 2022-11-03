@@ -19,8 +19,9 @@ export const actions: ActionTree<SocketState, RootState> = {
 
         if ('$socket' in Vue.prototype) {
             await Vue.prototype.$socket.close()
+            const basePath = import.meta.env.BASE_URL || '/'; // https://vitejs.dev/guide/build.html#public-base-path
             await Vue.prototype.$socket.setUrl(
-                state.protocol + '://' + payload.hostname + ':' + payload.port + '/websocket'
+                `${state.protocol}://${payload.hostname}:${payload.port}${basePath}websocket`
             )
             await Vue.prototype.$socket.connect()
         }
