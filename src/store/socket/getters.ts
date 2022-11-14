@@ -4,7 +4,7 @@ import { RootState } from '@/store/types'
 
 export const getters: GetterTree<SocketState, RootState> = {
     getUrl: (state) => {
-        const basePath = import.meta.env.BASE_URL || '/'; // https://vitejs.dev/guide/build.html#public-base-path
+        const basePath = import.meta.env.BASE_URL || ''; // https://vitejs.dev/guide/build.html#public-base-path
         const port = state.port === 80 ? '' : `:${state.port}`
         return `//${state.hostname}${port}${basePath}`
     },
@@ -14,6 +14,6 @@ export const getters: GetterTree<SocketState, RootState> = {
     },
 
     getWebsocketUrl: (state, getters) => {
-        return `${state.protocol}:${getters['getUrl']}websocket`
+        return `${state.protocol}:${getters['getUrl']}/websocket`
     },
 }

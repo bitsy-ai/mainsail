@@ -76,8 +76,8 @@ Vue.use(VueResize)
 
 const initLoad = async () => {
     //load config.json
-    const basePath = import.meta.env.BASE_URL || '/'; // https://vitejs.dev/guide/build.html#public-base-path
-    await fetch(`${basePath}config.json`)
+    const basePath = import.meta.env.BASE_URL || ''; // https://vitejs.dev/guide/build.html#public-base-path
+    await fetch(`${basePath}/config.json`)
         .then((res) => res.json())
         .then(async (file) => {
             window.console.debug('Loaded config.json')
