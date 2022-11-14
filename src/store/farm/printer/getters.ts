@@ -7,7 +7,7 @@ import { GuiWebcamStateWebcam } from '@/store/gui/webcams/types'
 // eslint-disable-next-line
 export const getters: GetterTree<FarmPrinterState, any> = {
     getSocketUrl: (state) => {
-        const basePath = import.meta.env.VUE_BASE_URL || ''; // https://vitejs.dev/guide/build.html#public-base-path
+        const basePath = import.meta.env.BASE_URL || ''; // https://vitejs.dev/guide/build.html#public-base-path
         return `${state.socket.protocol}://${state.socket.hostname}:${state.socket.port}${basePath}/websocket`
     },
 
@@ -150,7 +150,7 @@ export const getters: GetterTree<FarmPrinterState, any> = {
                 element.substr(0, element.lastIndexOf('.')) === themeDir + '/' + acceptName &&
                 acceptExtensions.includes(element.substr(element.lastIndexOf('.') + 1))
         )
-        const basePath = import.meta.env.VUE_BASE_URL || ''; // https://vitejs.dev/guide/build.html#public-base-path
+        const basePath = import.meta.env.BASE_URL || ''; // https://vitejs.dev/guide/build.html#public-base-path
         return file ? `//${state.socket.hostname}:${state.socket.port}${basePath}/server/files/config/` + file : null
     },
 
