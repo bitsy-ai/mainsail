@@ -9,7 +9,7 @@
     "scripts": {
         "serve": "vite serve",
         "build": "vite build && npm run build.zip",
-        "build:printnanny": "BASE_URL=/mainsail vite build --base=/mainsail/ && npm run build.zip",
+        "build:printnanny": "BASE_URL=/mainsail vite build --base=/mainsail && npm run build.zip",
         "format": "npm run format:base -- --write",
         "format:base": "prettier .",
         "format:check": "npm run format:base -- --check",
