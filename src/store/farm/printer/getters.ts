@@ -150,8 +150,8 @@ export const getters: GetterTree<FarmPrinterState, any> = {
                 element.substr(0, element.lastIndexOf('.')) === themeDir + '/' + acceptName &&
                 acceptExtensions.includes(element.substr(element.lastIndexOf('.') + 1))
         )
-
-        return file ? '//' + state.socket.hostname + ':' + state.socket.port + '/server/files/config/' + file : null
+        const basePath = import.meta.env.BASE_URL || ''; // https://vitejs.dev/guide/build.html#public-base-path
+        return file ? `//${state.socket.hostname}:${state.socket.port}${basePath}/server/files/config/` + file : null
     },
 
     getLogo: (state, getters) => {
