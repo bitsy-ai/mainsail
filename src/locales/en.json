@@ -234,6 +234,7 @@
     },
     "GCodeViewer": {
         "ClearLoadedFile": "Clear",
+        "CNCMode": "CNC Mode",
         "ColorMode": "Color Mode",
         "Downloading": "Downloading",
         "ForceLineRendering": "Force Line Rendering",
@@ -247,6 +248,7 @@
         "ReloadRequired": "Reload required",
         "Rendering": "Rendering",
         "RenderQuality": "Render Quality",
+        "ShowGCode": "Show G-Code",
         "ShowObjectSelection": "Show Object Selection",
         "ShowToolhead": "Show Toolhead",
         "ShowTravelMoves": "Show Travel Moves",
@@ -255,9 +257,7 @@
         "Tracking": "Tracking",
         "Transparency": "Transparency",
         "Ultra": "Ultra",
-        "VoxelMode": "Voxel Mode (ASMBL)",
-        "ShowGCode": "Show G-Code",
-        "CNCMode": "CNC Mode"
+        "VoxelMode": "Voxel Mode (ASMBL)"
     },
     "Heightmap": {
         "Abort": "abort",
@@ -306,8 +306,8 @@
         "AllJobs": "All",
         "AvgPrinttime": "Print Time - Ø",
         "Cancel": "Cancel",
-        "CreateNote": "Create Note",
         "Chart": "Chart",
+        "CreateNote": "Create Note",
         "Delete": "Delete",
         "DeleteSelectedQuestion": "Do you really want to delete {count} selected jobs?",
         "Details": "Details",
@@ -371,8 +371,8 @@
     },
     "JobQueue": {
         "AllJobs": "All Jobs",
-        "ChangeCount": "Change count",
         "Cancel": "Cancel",
+        "ChangeCount": "Change count",
         "Count": "Count",
         "Empty": "Empty",
         "InvalidCountEmpty": "Input must not be empty!",
@@ -433,8 +433,8 @@
             "Logfiles": "Log Files",
             "Rollover": "Rollover Logs",
             "RolloverDescription": "Please select which logs should be reset:",
-            "RolloverToastSuccessful": "Log for \"{name}\"was successfully reset.",
-            "RolloverToastFailed": "Rollover log for \"{name}\": {message}"
+            "RolloverToastFailed": "Rollover log for \"{name}\": {message}",
+            "RolloverToastSuccessful": "Log for \"{name}\"was successfully reset."
         },
         "SystemPanel": {
             "Constants": "Constants",
@@ -705,6 +705,12 @@
         "Printers": "Printers",
         "Timelapse": "Timelapse",
         "Webcam": "Webcam"
+    },
+    "ScrewsTiltAdjust": {
+        "Accept": "accept",
+        "Base": "Base",
+        "ErrorText": "Something went wrong during the probing process.",
+        "Headline": "Screws tilt adjust"
     },
     "SelectPrinterDialog": {
         "AddPrinter": "Add Printer",
@@ -1042,6 +1048,7 @@
             "EditCrowsnestConf": "Edit crowsnest.conf",
             "EditWebcam": "Edit Webcam",
             "FlipWebcam": "Flip webcam image:",
+            "Hlsstream": "HLS Stream",
             "Horizontally": "horizontally",
             "IconBed": "Bed",
             "IconCam": "Cam",
@@ -1052,7 +1059,6 @@
             "IconNozzle": "Nozzle",
             "IconPrinter": "Printer",
             "Ipstream": "IP Camera",
-            "Hlsstream": "HLS Stream",
             "Mjpegstreamer": "MJPEG-Streamer",
             "MjpegstreamerAdaptive": "Adaptive MJPEG-Streamer (experimental)",
             "Name": "Name",
@@ -1069,12 +1075,6 @@
             "Vertically": "vertically",
             "Webcams": "Webcams"
         }
-    },
-    "ScrewsTiltAdjust": {
-        "Accept": "accept",
-        "Base": "Base",
-        "ErrorText": "Something went wrong during the probing process.",
-        "Headline": "Screws tilt adjust"
     },
     "Timelapse": {
         "AllFiles": "All",
