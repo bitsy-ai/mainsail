@@ -13,7 +13,7 @@ import { registerSW } from 'virtual:pwa-register'
 
 // noinspection JSUnusedGlobalSymbols
 registerSW({
-    onOfflineReady() {},
+    onOfflineReady() { },
 })
 
 Vue.config.productionTip = false
@@ -54,6 +54,7 @@ Vue.use(OverlayScrollbarsPlugin, {
 
 // Directives
 import './directives/longpress'
+
 import './directives/responsive-class'
 
 // Echarts
@@ -76,7 +77,8 @@ Vue.use(VueResize)
 
 const initLoad = async () => {
     //load config.json
-    await fetch('/config.json')
+    const basePath = import.meta.env.BASE_URL || ''; // https://vitejs.dev/guide/build.html#public-base-path
+    await fetch(`${basePath}/config.json`)
         .then((res) => res.json())
         .then(async (file) => {
             window.console.debug('Loaded config.json')
