@@ -7,7 +7,8 @@ import { GuiWebcamStateWebcam } from '@/store/gui/webcams/types'
 // eslint-disable-next-line
 export const getters: GetterTree<FarmPrinterState, any> = {
     getSocketUrl: (state) => {
-        return state.socket.protocol + '://' + state.socket.hostname + ':' + state.socket.port + '/websocket'
+        const basePath = import.meta.env.BASE_URL || ''; // https://vitejs.dev/guide/build.html#public-base-path
+        return `${state.socket.protocol}://${state.socket.hostname}:${state.socket.port}${basePath}/websocket`
     },
 
     getSocketData: (state) => {
@@ -149,8 +150,8 @@ export const getters: GetterTree<FarmPrinterState, any> = {
                 element.substr(0, element.lastIndexOf('.')) === themeDir + '/' + acceptName &&
                 acceptExtensions.includes(element.substr(element.lastIndexOf('.') + 1))
         )
-
-        return file ? '//' + state.socket.hostname + ':' + state.socket.port + '/server/files/config/' + file : null
+        const basePath = import.meta.env.BASE_URL || ''; // https://vitejs.dev/guide/build.html#public-base-path
+        return file ? `//${state.socket.hostname}:${state.socket.port}${basePath}/server/files/config/` + file : null
     },
 
     getLogo: (state, getters) => {
@@ -259,7 +260,7 @@ export const getters: GetterTree<FarmPrinterState, any> = {
         ) {
             return (
                 state.data.print_stats.print_duration /
-                    (state.data.print_stats.filament_used / state.current_file.filament_total) -
+                (state.data.print_stats.filament_used / state.current_file.filament_total) -
                 state.data.print_stats.print_duration
             ).toFixed(0)
         }
